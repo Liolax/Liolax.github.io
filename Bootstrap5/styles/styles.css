@@ -1,0 +1,33 @@
+body {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.navbar {
+    background-color: #661a00 !important;
+}
+.nav-link {
+color: rgb(255, 255, 255);
+}
+.navbar-nav .nav-link.active
+{
+    color: rgb(237, 255, 136);
+}
+
+.dropdown-menu {
+    --bs-dropdown-bg: rgb(237, 255, 136);
+}
+
+.footer {
+background-color: #661a00 !important;
+color: rgb(255, 255, 255);
+text-align: center;
+}
+
+.accordion-flush>.accordion-item>.accordion-header .accordion-button,
+.accordion-flush>.accordion-item>.accordion-header .accordion-button.collapsed {
+background-color: #7b1f00;
+color: rgb(255, 255, 255);
+}
+.accordion-body {
+background-color: rgb(237, 255, 136);
+}
