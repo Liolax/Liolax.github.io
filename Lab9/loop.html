@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loops</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f8e2f7;
+            background-image: url('https://c.pxhere.com/photos/3e/9d/modern_architecture_buidling_roof-1397382.jpg!d');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #ff69b4;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff1493;
+            text-shadow: 2px 2px 4px #ff69b4;
+        }
+        h2 {
+            color: #ff69b4;
+            text-shadow: 1px 1px 3px #ff1493;
+        }
+        button {
+            background-color: #ffc1e3;
+            border: 2px solid #ff69b4;
+            color: #ff1493;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff69b4;
+            transform: scale(1.3);
+        }
+        div {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #e0cac7;
+            text-shadow: 1px 1px 2px #ff69b4;
+        }
+    </style>
+    <script>
+        // Print all numbers from -100 to 0
+        function minus100To0() {
+            var result = '';
+            for (var i = -100; i <= 0; i++) {
+                result += i + ' ';
+            }
+            document.getElementById('ex1').innerText = result;
+        }
+
+        // Print all numbers from 100 to 0
+        function hundredTo0() {
+            var result = '';
+            for (var i = 100; i >= 0; i--) {
+                result += i + ' ';
+            }
+            document.getElementById('ex2').innerText = result;
+        }
+
+        // Print all even numbers between -10 and +10
+        function evenMinus10To10() {
+            var result = '';
+            for (var i = -10; i <= 10; i++) {
+                // Only add even numbers
+                if (i % 2 === 0) {
+                    result += i + ' ';
+                }
+            }
+            document.getElementById('ex3').innerText = result;
+        }
+
+        // Print all numbers between two user-provided numbers
+        function betweenNums() {
+            var num1 = parseInt(prompt("Enter the first number"));
+            var num2 = parseInt(prompt("Enter the second number"));
+            var result = '';
+            for (var i = num1; i <= num2; i++) {
+                result += i + ' ';
+            }
+            document.getElementById('ex4').innerText = result;
+        }
+
+        // Print numbers using custom loop parameters from the user
+        function customLoop() {
+            var start = parseInt(prompt("Enter the start number"));
+            var end = parseInt(prompt("Enter the end number"));
+            var step = parseInt(prompt("Enter the step increment"));
+            var result = '';
+            for (var i = start; i <= end; i += step) {
+                result += i + ' ';
+            }
+            document.getElementById('ex5').innerText = result;
+        }
+
+        // Calculate the sum of all numbers from 1 to 10
+        function sum1To10() {
+            var sum = 0;
+            for (var i = 1; i <= 10; i++) {
+                sum += i;
+            }
+            document.getElementById('ex6').innerText = sum;
+        }
+
+        // Calculate the sum of all even numbers and all odd numbers from 1 to 100
+        function sumEvenOdd() {
+            var sumEven = 0;
+            var sumOdd = 0;
+            for (var i = 1; i <= 100; i++) {
+                if (i % 2 === 0) {
+                    sumEven += i;
+                } else {
+                    sumOdd += i;
+                }
+            }
+            document.getElementById('ex7').innerText = "Sum of even numbers: " + sumEven + " Sum of odd numbers: " + sumOdd;
+        }
+
+        // Take in 5 numbers from the user and output the sum of all inputted numbers
+        function sumFiveNums() {
+            var sum = 0;
+            for (var i = 0; i < 5; i++) {
+                var num = parseInt(prompt("Enter a number"));
+                sum += num;
+            }
+            document.getElementById('ex8').innerText = sum;
+        }
+
+        // Take in 2 numbers from the user and raise the first number to the power of the second
+        function powerNums() {
+            var base = parseInt(prompt("Enter the base number"));
+            var exp = parseInt(prompt("Enter the exponent"));
+            var result = Math.pow(base, exp);
+            document.getElementById('ex9').innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Loops</h1>
+
+    <h2>Print all numbers -100 to 0</h2>
+    <button onclick="minus100To0()">Run</button>
+    <div id="ex1"></div>
+
+    <h2>Print all numbers 100 to 0</h2>
+    <button onclick="hundredTo0()">Run</button>
+    <div id="ex2"></div>
+
+    <h2>Print all even numbers between -10 and +10</h2>
+    <button onclick="evenMinus10To10()">Run</button>
+    <div id="ex3"></div>
+
+    <h2>Give 2 numbers and print all numbers between these 2</h2>
+    <button onclick="betweenNums()">Run</button>
+    <div id="ex4"></div>
+
+    <h2>Give 3 numbers and use them to set all 3 parts of the loop and print</h2>
+    <button onclick="customLoop()">Run</button>
+    <div id="ex5"></div>
+
+    <h2>Calculate the sum of all numbers 1-10</h2>
+    <button onclick="sum1To10()">Run</button>
+    <div id="ex6"></div>
+
+    <h2>Calculate the sum of all even numbers 1-100 and all odd numbers 1-100</h2>
+    <button onclick="sumEvenOdd()">Run</button>
+    <div id="ex7"></div>
+
+    <h2>Give 5 numbers to make a loop that outputs the sum of all inputted numbers</h2>
+    <button onclick="sumFiveNums()">Run</button>
+    <div id="ex8"></div>
+
+    <h2>Give 2 numbers to make a loop that raises the first number to the power of the second</h2>
+    <button onclick="powerNums()">Run</button>
+    <div id="ex9"></div>
+</body>
+</html>

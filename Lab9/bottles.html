@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>99 Bottles of Beer</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #fcfdf5;
+            color: #814e00;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #563800;
+        }
+        .lyrics {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #dcbf02;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ca9b00;
+        }
+    </style>
+</head>
+<body>
+    <h1>99 Bottles of Beer</h1>
+    <button onclick="generate()">Generate</button>
+    <div id="lyrics" class="lyrics"></div>
+    <script>
+        function generate() {
+            var lyrics = "";
+            for (var i = 99; i > 0; i--) {
+                lyrics += i + " bottle" + (i > 1 ? "s" : "") + " of beer on the wall, " + i + " bottle" + (i > 1 ? "s" : "") + " of beer.<br>";
+                lyrics += "Take one down and pass it around, " + (i - 1) + " bottle" + (i - 1 != 1 ? "s" : "") + " of beer on the wall.<br><br>";
+            }
+            lyrics += "No more bottles of beer on the wall, no more bottles of beer.<br>";
+            lyrics += "Go to the store and buy some more, 99 bottles of beer on the wall.<br>";
+            document.getElementById("lyrics").innerHTML = lyrics;
+        }
+    </script>
+</body>
+</html>

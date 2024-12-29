@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock, Paper, Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        #finalResult {
+            font-size: 1.2em;
+            color: #d9534f;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        var gameCount = 0;
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+        function playGame(userChoice) {
+            if (gameCount >= 3 || wins > 0) {
+                document.getElementById("finalResult").innerText = "Game over! Wins: " + wins + ", Losses: " + losses + ", Ties: " + ties;
+                return;
+            }
+
+            var choices = ["rock", "paper", "scissors"];
+            var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            var result = "";
+            if (userChoice === computerChoice) {
+                result = "It's a tie! Both chose " + userChoice;
+                ties++;
+            } else if (userChoice === "rock") {
+                if (computerChoice === "scissors") {
+                    result = "You win! Rock beats scissors.";
+                    wins++;
+                } else {
+                    result = "You lose! Paper beats rock.";
+                    losses++;
+                }
+            } else if (userChoice === "paper") {
+                if (computerChoice === "rock") {
+                    result = "You win! Paper beats rock.";
+                    wins++;
+                } else {
+                    result = "You lose! Scissors beats paper.";
+                    losses++;
+                }
+            } else if (userChoice === "scissors") {
+                if (computerChoice === "paper") {
+                    result = "You win! Scissors beats paper.";
+                    wins++;
+                } else {
+                    result = "You lose! Rock beats scissors.";
+                    losses++;
+                }
+            }
+
+            document.getElementById("result").innerText = result;
+            gameCount++;
+
+            if (gameCount >= 3 || wins > 0) {
+                document.getElementById("finalResult").innerText = "Game over! Wins: " + wins + ", Losses: " + losses + ", Ties: " + ties;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <button class="button" onclick="playGame('rock')">Rock</button>
+    <button class="button" onclick="playGame('paper')">Paper</button>
+    <button class="button" onclick="playGame('scissors')">Scissors</button>
+    <div id="result"></div>
+    <div id="finalResult"></div>
+</body>
+</html>
